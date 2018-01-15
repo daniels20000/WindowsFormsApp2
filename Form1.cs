@@ -10,10 +10,17 @@ namespace POSK
         public Rejestr B = new Rejestr();
         public Rejestr C = new Rejestr();
         public Rejestr D = new Rejestr();
+
         public int operacja = -1;
-        public int indexArgument = 1;
-        public int arg1=0;
-        public int arg2=0;
+
+        public int arg=0;
+
+        public bool czyWybranoRejestr = false;
+
+        public bool rejestrowe;
+        public Rejestr rejDocelowy;
+        public Rejestr rejZrodlowy;
+
         public Form1()
         {            
             InitializeComponent();
@@ -55,55 +62,83 @@ namespace POSK
         {
             if ((e.KeyChar == (char)13))
                 if(operacja!=-1)
-            {
-                switch (indexArgument)
-                {
-                    case 1:
+                 {
+
+                    if (czyWybranoRejestr)
+                    {
+                        short i;
+                        if (Int16.TryParse(natychmiastowe.Text, out i))
                         {
-                            short i;
-                            if (Int16.TryParse(natychmiastowe.Text, out i))
-                            {
-                                labelRozkaz2.Text = natychmiastowe.Text;
-                                arg1 = i;
-                                indexArgument = 2;
-                            }
-                            else
-                            {
-                                natychmiastowe.Text = "to nie liczba";
-                                natychmiastowe.SelectAll();
-                            }
-
-
-                        }break;
-                    case 2:
-                        {
-                            short i;
-                            if (Int16.TryParse(natychmiastowe.Text, out i))
-                            {
-                                labelRozkaz3.Text = natychmiastowe.Text;
-                                arg2 = i;
-                                indexArgument = 1;
-                            }
-                            else
-                            {
-                                natychmiastowe.Text = "to nie liczba";
-                                natychmiastowe.SelectAll();
-                            }
-
+                            labelRozkaz3.Text = natychmiastowe.Text;
+                            arg = i;
 
                         }
-                        break;
-                }
+                        else
+                        {
+                            natychmiastowe.Text = "to nie liczba";
+                            natychmiastowe.SelectAll();
+                        }
+                    }
+                    else
+                    {
+                        natychmiastowe.Text = "wybierz rejestr";
+                        natychmiastowe.SelectAll();
+                    }
             }else
                 {
-                    natychmiastowe.Text = "wybierz operację ";
+                    natychmiastowe.Text = "wybierz operację";
                     natychmiastowe.SelectAll();
                 }
+            else if(e.KeyChar==(char)27)
+            {
+                arg = 0;
+                
+                labelRozkaz1.Text = "";
+                labelRozkaz2.Text = "";
+                labelRozkaz3.Text = "";
+                operacja = -1;
+            }
         }
 
         private void natychmiastowe_Leave(object sender, EventArgs e)
         {
             natychmiastowe.Text = "podaj argument";
+        }
+
+        private void commit_Click(object sender, EventArgs e)
+        {
+            if (rejestrowe)
+            {
+
+            }
+            else{
+                switch (operacja)
+                {
+                    case -1:
+                        {
+                            natychmiastowe.Text = "wybierz operację";
+
+                        } break;
+                    case 0:
+                        {
+                            MovNatychmiastowe();
+                        } break;
+                }
+            }
+            refresh();
+        }
+
+        public void MovNatychmiastowe()
+        {
+            
+        }
+        public void Add()
+        {
+
+        }
+        public void Sub()
+        {
+
         }
     }
 }

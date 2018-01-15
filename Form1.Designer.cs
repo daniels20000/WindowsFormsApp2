@@ -34,9 +34,9 @@
             this.Bx = new System.Windows.Forms.Label();
             this.Cx = new System.Windows.Forms.Label();
             this.Dx = new System.Windows.Forms.Label();
-            this.Mov = new System.Windows.Forms.Button();
-            this.Add = new System.Windows.Forms.Button();
-            this.Sub = new System.Windows.Forms.Button();
+            this.buttonMov = new System.Windows.Forms.Button();
+            this.buttonAdd = new System.Windows.Forms.Button();
+            this.buttonSub = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -98,35 +98,35 @@
             this.Dx.TabIndex = 3;
             this.Dx.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // Mov
+            // buttonMov
             // 
-            this.Mov.Location = new System.Drawing.Point(269, 34);
-            this.Mov.Name = "Mov";
-            this.Mov.Size = new System.Drawing.Size(75, 23);
-            this.Mov.TabIndex = 4;
-            this.Mov.Text = "MOV";
-            this.Mov.UseVisualStyleBackColor = true;
-            this.Mov.Click += new System.EventHandler(this.Mov_Click);
+            this.buttonMov.Location = new System.Drawing.Point(269, 34);
+            this.buttonMov.Name = "buttonMov";
+            this.buttonMov.Size = new System.Drawing.Size(75, 23);
+            this.buttonMov.TabIndex = 4;
+            this.buttonMov.Text = "MOV";
+            this.buttonMov.UseVisualStyleBackColor = true;
+            this.buttonMov.Click += new System.EventHandler(this.Mov_Click);
             // 
-            // Add
+            // buttonAdd
             // 
-            this.Add.Location = new System.Drawing.Point(269, 73);
-            this.Add.Name = "Add";
-            this.Add.Size = new System.Drawing.Size(75, 23);
-            this.Add.TabIndex = 5;
-            this.Add.Text = "ADD";
-            this.Add.UseVisualStyleBackColor = true;
-            this.Add.Click += new System.EventHandler(this.Add_Click);
+            this.buttonAdd.Location = new System.Drawing.Point(269, 73);
+            this.buttonAdd.Name = "buttonAdd";
+            this.buttonAdd.Size = new System.Drawing.Size(75, 23);
+            this.buttonAdd.TabIndex = 5;
+            this.buttonAdd.Text = "ADD";
+            this.buttonAdd.UseVisualStyleBackColor = true;
+            this.buttonAdd.Click += new System.EventHandler(this.Add_Click);
             // 
-            // Sub
+            // buttonSub
             // 
-            this.Sub.Location = new System.Drawing.Point(269, 110);
-            this.Sub.Name = "Sub";
-            this.Sub.Size = new System.Drawing.Size(75, 23);
-            this.Sub.TabIndex = 6;
-            this.Sub.Text = "SUB";
-            this.Sub.UseVisualStyleBackColor = true;
-            this.Sub.Click += new System.EventHandler(this.Sub_Click);
+            this.buttonSub.Location = new System.Drawing.Point(269, 110);
+            this.buttonSub.Name = "buttonSub";
+            this.buttonSub.Size = new System.Drawing.Size(75, 23);
+            this.buttonSub.TabIndex = 6;
+            this.buttonSub.Text = "SUB";
+            this.buttonSub.UseVisualStyleBackColor = true;
+            this.buttonSub.Click += new System.EventHandler(this.Sub_Click);
             // 
             // label1
             // 
@@ -222,6 +222,7 @@
             this.commit.TabIndex = 14;
             this.commit.Text = "Wykonaj";
             this.commit.UseVisualStyleBackColor = true;
+            this.commit.Click += new System.EventHandler(this.commit_Click);
             // 
             // natychmiastowe
             // 
@@ -245,9 +246,9 @@
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.Sub);
-            this.Controls.Add(this.Add);
-            this.Controls.Add(this.Mov);
+            this.Controls.Add(this.buttonSub);
+            this.Controls.Add(this.buttonAdd);
+            this.Controls.Add(this.buttonMov);
             this.Controls.Add(this.Dx);
             this.Controls.Add(this.Cx);
             this.Controls.Add(this.Bx);
@@ -267,9 +268,9 @@
         private System.Windows.Forms.Label Bx;
         private System.Windows.Forms.Label Cx;
         private System.Windows.Forms.Label Dx;
-        private System.Windows.Forms.Button Mov;
-        private System.Windows.Forms.Button Add;
-        private System.Windows.Forms.Button Sub;
+        private System.Windows.Forms.Button buttonMov;
+        private System.Windows.Forms.Button buttonAdd;
+        private System.Windows.Forms.Button buttonSub;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
