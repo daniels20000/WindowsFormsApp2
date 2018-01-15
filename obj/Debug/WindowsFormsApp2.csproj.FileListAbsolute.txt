@@ -1,0 +1,10 @@
+C:\Users\danie\source\repos\WindowsFormsApp2\WindowsFormsApp2\obj\Debug\WindowsFormsApp2.csprojResolveAssemblyReference.cache
+C:\Users\danie\source\repos\WindowsFormsApp2\WindowsFormsApp2\obj\Debug\POSK.Properties.Resources.resources
+C:\Users\danie\source\repos\WindowsFormsApp2\WindowsFormsApp2\obj\Debug\WindowsFormsApp2.csproj.GenerateResource.Cache
+C:\Users\danie\source\repos\WindowsFormsApp2\WindowsFormsApp2\obj\Debug\WindowsFormsApp2.csproj.CoreCompileInputs.cache
+C:\Users\danie\source\repos\WindowsFormsApp2\WindowsFormsApp2\bin\Debug\POSK 1 i 2 Szuta Zalewski.exe.config
+C:\Users\danie\source\repos\WindowsFormsApp2\WindowsFormsApp2\bin\Debug\POSK 1 i 2 Szuta Zalewski.exe
+C:\Users\danie\source\repos\WindowsFormsApp2\WindowsFormsApp2\bin\Debug\POSK 1 i 2 Szuta Zalewski.pdb
+C:\Users\danie\source\repos\WindowsFormsApp2\WindowsFormsApp2\obj\Debug\POSK 1 i 2 Szuta Zalewski.exe
+C:\Users\danie\source\repos\WindowsFormsApp2\WindowsFormsApp2\obj\Debug\POSK 1 i 2 Szuta Zalewski.pdb
+C:\Users\danie\source\repos\WindowsFormsApp2\WindowsFormsApp2\obj\Debug\POSK.Form1.resources
