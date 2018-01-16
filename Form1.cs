@@ -2,6 +2,8 @@
 using System.Windows.Forms;
 using System.Collections;
 using System.Collections.Generic;
+using System.IO;
+using System.Xml.Serialization;
 
 namespace POSK
 
@@ -49,7 +51,7 @@ namespace POSK
 
         public void refreshKolejka()
         {
-          //  if(listaRozkazow.Count>0)
+          
                 indeks = listaRozkazow.Count-1;
 
             labelKolejka.Text = "";
@@ -371,5 +373,25 @@ namespace POSK
                 Clear();
         }
 
+        private void buttonZapisz_Click(object sender, EventArgs e)
+        {
+            using (Stream fs = new FileStream(Environment.ExpandEnvironmentVariables("%AppData%\\listaRozkazów.xml"),
+                FileMode.Create, FileAccess.Write, FileShare.None))
+            {
+                XmlSerializer serializer = new XmlSerializer(typeof(List<Rozkaz>));
+                serializer.Serialize(fs, listaRozkazow);
+            }
+        }
+
+        private void buttonOtworz_Click(object sender, EventArgs e)
+        {
+            XmlSerializer serializer = new XmlSerializer(typeof(List<Rozkaz>));
+
+            using (FileStream fs = File.OpenRead(Environment.ExpandEnvironmentVariables("%AppData%\\listaRozkazów.xml")))
+            {
+                listaRozkazow = (List<Rozkaz>)serializer.Deserialize(fs);
+            }
+            refresh();
+        }
     }
 }

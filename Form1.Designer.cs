@@ -53,6 +53,8 @@
             this.doKolejki = new System.Windows.Forms.Button();
             this.wykonajKolejke = new System.Windows.Forms.Button();
             this.krokowa = new System.Windows.Forms.Button();
+            this.buttonZapisz = new System.Windows.Forms.Button();
+            this.buttonOtworz = new System.Windows.Forms.Button();
             this.flowLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -305,11 +307,33 @@
             this.krokowa.UseVisualStyleBackColor = true;
             this.krokowa.Click += new System.EventHandler(this.krokowa_Click);
             // 
+            // buttonZapisz
+            // 
+            this.buttonZapisz.Location = new System.Drawing.Point(300, 181);
+            this.buttonZapisz.Name = "buttonZapisz";
+            this.buttonZapisz.Size = new System.Drawing.Size(75, 23);
+            this.buttonZapisz.TabIndex = 22;
+            this.buttonZapisz.Text = "Zapisz";
+            this.buttonZapisz.UseVisualStyleBackColor = true;
+            this.buttonZapisz.Click += new System.EventHandler(this.buttonZapisz_Click);
+            // 
+            // buttonOtworz
+            // 
+            this.buttonOtworz.Location = new System.Drawing.Point(381, 181);
+            this.buttonOtworz.Name = "buttonOtworz";
+            this.buttonOtworz.Size = new System.Drawing.Size(75, 23);
+            this.buttonOtworz.TabIndex = 23;
+            this.buttonOtworz.Text = "Otwórz";
+            this.buttonOtworz.UseVisualStyleBackColor = true;
+            this.buttonOtworz.Click += new System.EventHandler(this.buttonOtworz_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(592, 355);
+            this.Controls.Add(this.buttonOtworz);
+            this.Controls.Add(this.buttonZapisz);
             this.Controls.Add(this.krokowa);
             this.Controls.Add(this.wykonajKolejke);
             this.Controls.Add(this.doKolejki);
@@ -365,6 +389,8 @@
         private System.Windows.Forms.Button doKolejki;
         private System.Windows.Forms.Button wykonajKolejke;
         private System.Windows.Forms.Button krokowa;
+        private System.Windows.Forms.Button buttonZapisz;
+        private System.Windows.Forms.Button buttonOtworz;
     }
 }
 
