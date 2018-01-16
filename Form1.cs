@@ -141,12 +141,13 @@ namespace POSK
                         break;
                 
             }
-            Clean();
             refresh();
+            Clean();
+            
         }
         public void Mov()
         {
-            rejDocelowy = rejZrodlowy;
+            rejDocelowy.setValue(rejZrodlowy.getValue()) ;
             rejZrodlowy.setValue(0);           
         }
         public void MovNatychmiastowe()
