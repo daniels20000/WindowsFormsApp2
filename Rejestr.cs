@@ -32,6 +32,17 @@ namespace POSK
             byte[] bytes = new byte[] { NL, NH };
             return Convert.ToString( BitConverter.ToInt16(bytes, 0),2).PadLeft(16,'0');
         }
+        public void AddValue(int i)
+        {
+            int j = getValue() + i;
+            setValue(i);
+        }
+        public void SubValue(int i)
+        {
+            int j = getValue() - i;
+            if (j>=0) 
+            setValue(j);
+        }
 
 
     }

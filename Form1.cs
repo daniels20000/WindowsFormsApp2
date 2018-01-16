@@ -15,17 +15,18 @@ namespace POSK
 
         public int arg=0;
 
-        public bool czyWybranoRejestr = false;
+        public bool czyWybranoDocelowyRejestr = false;
 
         public bool rejestrowe;
         public Rejestr rejDocelowy;
         public Rejestr rejZrodlowy;
 
+
         public Form1()
         {            
             InitializeComponent();
             
-            A.setValue(65);
+            
             refresh();
 
 
@@ -63,7 +64,7 @@ namespace POSK
             if ((e.KeyChar == (char)13))
                 if(operacja!=-1)
                  {
-                    if (czyWybranoRejestr)
+                    if (czyWybranoDocelowyRejestr)
                     {
 
                         short i;
@@ -106,11 +107,8 @@ namespace POSK
 
         private void commit_Click(object sender, EventArgs e)
         {
-            if (rejestrowe)
-            {
-
-            }
-            else{
+            
+            
                 switch (operacja)
                 {
                     case -1:
@@ -119,21 +117,37 @@ namespace POSK
 
                         } break;
                     case 0:
-                        {   if (rejestrowe)
+                        {
+                            if (rejestrowe)
                                 Mov();
-                        else
-                            MovNatychmiastowe();
+                            else
+                                MovNatychmiastowe();
                         } break;
-                }
+                    case 1:
+                        {
+                            if (rejestrowe)
+                                Add();
+                            else
+                               AddNatychmiastowe();
+                        }
+                        break;
+                    case 2:
+                        {
+                            if (rejestrowe)
+                               Sub();
+                            else
+                                SubNatychmiastowe();
+                        }
+                        break;
+                
             }
+            Clean();
             refresh();
         }
         public void Mov()
         {
             rejDocelowy = rejZrodlowy;
-            rejZrodlowy.setValue(0);
-            Clean();
-            refresh();
+            rejZrodlowy.setValue(0);           
         }
         public void MovNatychmiastowe()
         {
@@ -142,20 +156,21 @@ namespace POSK
 
         public void Add()
         {
+            rejDocelowy.AddValue(rejZrodlowy.getValue());
 
         }
         public void AddNatychmiastowe()
         {
-
+            rejDocelowy.AddValue(arg);
         }
 
         public void Sub()
         {
-
+            rejDocelowy.SubValue(rejZrodlowy.getValue());
         }
         public void SubNatychmiastowe()
         {
-
+            rejDocelowy.SubValue(arg);
         }
 
 
@@ -168,6 +183,8 @@ namespace POSK
             labelRozkaz2.Text = "";
             labelRozkaz3.Text = "";
             operacja = -1;
+            czyWybranoDocelowyRejestr = false;
+            rejestrowe = false;
         }
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
@@ -176,11 +193,76 @@ namespace POSK
 
             ComboBox box = (ComboBox)sender;
 
-           labelRozkaz2.Text= Convert.ToString( box.SelectedIndex);
-            //switch (box.SelectedIndex)
-            //{
-            //    case 1 
-            //}
+          
+            switch (box.SelectedIndex)
+            {
+                case 0:
+                    {
+                        if (czyWybranoDocelowyRejestr)
+                        {
+                            rejZrodlowy = A;
+                            labelRozkaz3.Text = "AX";
+                            rejestrowe = true;
+                        }
+                        else
+                        {
+                            rejDocelowy = A;
+                            labelRozkaz2.Text = "AX";
+                            czyWybranoDocelowyRejestr = true;
+                            
+                        }
+                    }break;
+                case 1:
+                    {
+                        if (czyWybranoDocelowyRejestr)
+                        {
+                            rejZrodlowy = B;
+                            labelRozkaz3.Text = "BX";
+                            rejestrowe = true;
+                        }
+                        else
+                        {
+                            rejDocelowy = B;
+                            labelRozkaz2.Text = "BX";
+                            czyWybranoDocelowyRejestr = true;
+                        }
+                    }
+                    break;
+                case 2:
+                    {
+                        if (czyWybranoDocelowyRejestr)
+                        {
+                            rejZrodlowy = C;
+                            labelRozkaz3.Text = "CX";
+                            rejestrowe = true;
+                        }
+                        else
+                        {
+                            rejDocelowy = C;
+                            labelRozkaz2.Text = "CX";
+                            czyWybranoDocelowyRejestr = true;
+                           
+                        }
+                    }
+                    break;
+                case 3:
+                    {
+                        if (czyWybranoDocelowyRejestr)
+                        {
+                            rejZrodlowy = D;
+                            labelRozkaz3.Text = "DX";
+                            rejestrowe = true;
+                        }
+                        else
+                        {
+                            rejDocelowy = D;
+                            labelRozkaz2.Text = "DX";
+                            czyWybranoDocelowyRejestr = true;
+                            
+                        }
+                    }
+                    break;
+            }
         }
     }
 }
