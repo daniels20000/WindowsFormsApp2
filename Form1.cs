@@ -63,9 +63,9 @@ namespace POSK
             if ((e.KeyChar == (char)13))
                 if(operacja!=-1)
                  {
-
                     if (czyWybranoRejestr)
                     {
+
                         short i;
                         if (Int16.TryParse(natychmiastowe.Text, out i))
                         {
@@ -84,19 +84,18 @@ namespace POSK
                         natychmiastowe.Text = "wybierz rejestr";
                         natychmiastowe.SelectAll();
                     }
-            }else
-                {
-                    natychmiastowe.Text = "wybierz operację";
-                    natychmiastowe.SelectAll();
-                }
+
+                } else
+                    {
+                        natychmiastowe.Text = "wybierz operację";
+                        natychmiastowe.SelectAll();
+
+                    }
+
+
             else if(e.KeyChar==(char)27)
             {
-                arg = 0;
-                
-                labelRozkaz1.Text = "";
-                labelRozkaz2.Text = "";
-                labelRozkaz3.Text = "";
-                operacja = -1;
+                Clean();
             }
         }
 
@@ -120,25 +119,68 @@ namespace POSK
 
                         } break;
                     case 0:
-                        {
+                        {   if (rejestrowe)
+                                Mov();
+                        else
                             MovNatychmiastowe();
                         } break;
                 }
             }
             refresh();
         }
-
+        public void Mov()
+        {
+            rejDocelowy = rejZrodlowy;
+            rejZrodlowy.setValue(0);
+            Clean();
+            refresh();
+        }
         public void MovNatychmiastowe()
         {
-            
+            rejDocelowy.setValue(arg);
         }
+
         public void Add()
         {
 
         }
+        public void AddNatychmiastowe()
+        {
+
+        }
+
         public void Sub()
         {
 
+        }
+        public void SubNatychmiastowe()
+        {
+
+        }
+
+
+        public void Clean()
+        {
+            arg = 0;
+            rejDocelowy = new Rejestr();
+            rejZrodlowy = new Rejestr();
+            labelRozkaz1.Text = "";
+            labelRozkaz2.Text = "";
+            labelRozkaz3.Text = "";
+            operacja = -1;
+        }
+
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+
+            ComboBox box = (ComboBox)sender;
+
+           labelRozkaz2.Text= Convert.ToString( box.SelectedIndex);
+            //switch (box.SelectedIndex)
+            //{
+            //    case 1 
+            //}
         }
     }
 }
