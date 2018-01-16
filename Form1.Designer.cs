@@ -48,6 +48,11 @@
             this.commit = new System.Windows.Forms.Button();
             this.natychmiastowe = new System.Windows.Forms.TextBox();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.labelKolejka = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.doKolejki = new System.Windows.Forms.Button();
+            this.wykonajKolejke = new System.Windows.Forms.Button();
+            this.krokowa = new System.Windows.Forms.Button();
             this.flowLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -250,11 +255,66 @@
             this.comboBox1.Text = "wybierz rejestr";
             this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             // 
+            // labelKolejka
+            // 
+            this.labelKolejka.AutoSize = true;
+            this.labelKolejka.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.labelKolejka.Location = new System.Drawing.Point(98, 181);
+            this.labelKolejka.MinimumSize = new System.Drawing.Size(150, 90);
+            this.labelKolejka.Name = "labelKolejka";
+            this.labelKolejka.Size = new System.Drawing.Size(150, 90);
+            this.labelKolejka.TabIndex = 17;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(148, 157);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(41, 13);
+            this.label5.TabIndex = 18;
+            this.label5.Text = "kolejka";
+            // 
+            // doKolejki
+            // 
+            this.doKolejki.Location = new System.Drawing.Point(479, 110);
+            this.doKolejki.Name = "doKolejki";
+            this.doKolejki.Size = new System.Drawing.Size(75, 47);
+            this.doKolejki.TabIndex = 19;
+            this.doKolejki.Text = "dodaj do kolejki";
+            this.doKolejki.UseVisualStyleBackColor = true;
+            this.doKolejki.Click += new System.EventHandler(this.doKolejki_Click);
+            // 
+            // wykonajKolejke
+            // 
+            this.wykonajKolejke.Location = new System.Drawing.Point(101, 274);
+            this.wykonajKolejke.Name = "wykonajKolejke";
+            this.wykonajKolejke.Size = new System.Drawing.Size(62, 55);
+            this.wykonajKolejke.TabIndex = 20;
+            this.wykonajKolejke.Text = "Wykonaj kolejkę";
+            this.wykonajKolejke.UseVisualStyleBackColor = true;
+            this.wykonajKolejke.Click += new System.EventHandler(this.wykonajKolejke_Click);
+            // 
+            // krokowa
+            // 
+            this.krokowa.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.krokowa.Location = new System.Drawing.Point(182, 274);
+            this.krokowa.Name = "krokowa";
+            this.krokowa.Size = new System.Drawing.Size(62, 55);
+            this.krokowa.TabIndex = 21;
+            this.krokowa.Text = "Praca krokowa";
+            this.krokowa.UseVisualStyleBackColor = true;
+            this.krokowa.Click += new System.EventHandler(this.krokowa_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(592, 289);
+            this.ClientSize = new System.Drawing.Size(592, 355);
+            this.Controls.Add(this.krokowa);
+            this.Controls.Add(this.wykonajKolejke);
+            this.Controls.Add(this.doKolejki);
+            this.Controls.Add(this.label5);
+            this.Controls.Add(this.labelKolejka);
             this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.natychmiastowe);
             this.Controls.Add(this.commit);
@@ -272,6 +332,7 @@
             this.Controls.Add(this.Ax);
             this.Name = "Form1";
             this.Text = "Form1";
+            this.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Form1_KeyPress);
             this.flowLayoutPanel1.ResumeLayout(false);
             this.flowLayoutPanel1.PerformLayout();
             this.ResumeLayout(false);
@@ -299,6 +360,11 @@
         private System.Windows.Forms.Button commit;
         private System.Windows.Forms.TextBox natychmiastowe;
         private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.Label labelKolejka;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Button doKolejki;
+        private System.Windows.Forms.Button wykonajKolejke;
+        private System.Windows.Forms.Button krokowa;
     }
 }
 

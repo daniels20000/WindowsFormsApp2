@@ -9,12 +9,16 @@ namespace POSK
 {
     public class Rejestr
     {
+        public String nazwa;
         public byte NH;
         public byte NL;
-        public Rejestr()
+
+        public Rejestr():this("") { }
+        public Rejestr(String s)
         {
             NH = 0;
             NL = 0;
+            nazwa = s;
         }
         public void setValue(int value)
         {
@@ -44,6 +48,9 @@ namespace POSK
             setValue(j);
         }
 
-
+        public String getNazwa()
+        {
+            return nazwa;
+        }
     }
 }

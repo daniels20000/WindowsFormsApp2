@@ -1,15 +1,17 @@
 ﻿using System;
 using System.Windows.Forms;
+using System.Collections;
+using System.Collections.Generic;
 
 namespace POSK
 
 {
     public partial class Form1 : Form
     {
-        public Rejestr A = new Rejestr();
-        public Rejestr B = new Rejestr();
-        public Rejestr C = new Rejestr();
-        public Rejestr D = new Rejestr();
+        public Rejestr A = new Rejestr("AX");
+        public Rejestr B = new Rejestr("BX");
+        public Rejestr C = new Rejestr("CX");
+        public Rejestr D = new Rejestr("DX");
 
         public int operacja = -1;
 
@@ -21,6 +23,8 @@ namespace POSK
         public Rejestr rejDocelowy;
         public Rejestr rejZrodlowy;
 
+        public List<Rozkaz> listaRozkazow = new List<Rozkaz>();
+        public int indeks;
 
         public Form1()
         {            
@@ -39,6 +43,20 @@ namespace POSK
             Bx.Text = B.getStringValue();
             Cx.Text = C.getStringValue();
             Dx.Text = D.getStringValue();
+
+            refreshKolejka();
+        }
+
+        public void refreshKolejka()
+        {
+          //  if(listaRozkazow.Count>0)
+                indeks = listaRozkazow.Count-1;
+
+            labelKolejka.Text = "";
+            foreach(Rozkaz r in listaRozkazow)
+            {
+                labelKolejka.Text += r.tekstRozkazu();
+            }
         }
 
         private void Mov_Click(object sender, EventArgs e)
@@ -94,10 +112,10 @@ namespace POSK
                     }
 
 
-            else if(e.KeyChar==(char)27)
-            {
-                Clean();
-            }
+            //else if(e.KeyChar==(char)27)
+            //{
+            //    Clear();
+            //}
         }
 
         private void natychmiastowe_Leave(object sender, EventArgs e)
@@ -142,13 +160,13 @@ namespace POSK
                 
             }
             refresh();
-            Clean();
+            Clear();
             
         }
         public void Mov()
         {
             rejDocelowy.setValue(rejZrodlowy.getValue()) ;
-            rejZrodlowy.setValue(0);           
+           // rejZrodlowy.setValue(0);           
         }
         public void MovNatychmiastowe()
         {
@@ -175,7 +193,7 @@ namespace POSK
         }
 
 
-        public void Clean()
+        public void Clear()
         {
             arg = 0;
             rejDocelowy = new Rejestr();
@@ -265,5 +283,93 @@ namespace POSK
                     break;
             }
         }
+
+        private void doKolejki_Click(object sender, EventArgs e)
+        {
+            Rozkaz r = new Rozkaz();
+            r.operacja = operacja;
+            r.arg1=rejDocelowy;
+            if (rejestrowe)
+            {
+                r.arg2 = rejZrodlowy;
+            }
+            else
+            {
+                r.arg2 = arg;
+            }
+             
+            listaRozkazow.Add(r);
+
+            refresh();
+            Clear();
+        }
+
+        private void wykonajKolejke_Click(object sender, EventArgs e)
+        {
+
+            foreach (Rozkaz r in listaRozkazow)
+            {
+                operacja = r.operacja;
+
+                rejDocelowy = r.arg1;
+                if (Int16.TryParse(r.arg2.ToString(), out short i))
+                {
+                    rejestrowe = false;
+                    arg = i;
+
+                }
+                else
+                {
+                    rejZrodlowy = (Rejestr)r.arg2;
+                    rejestrowe = true;
+                }
+
+
+                commit_Click(sender, e);
+            }
+
+            listaRozkazow.Clear();
+            refresh();
+
+        }
+
+        private void krokowa_Click(object sender, EventArgs e)
+        {
+            if (listaRozkazow.Count > 0)
+            {
+                Rozkaz r = listaRozkazow[indeks];
+
+                operacja = r.operacja;
+
+                rejDocelowy = r.arg1;
+                if (Int16.TryParse(r.arg2.ToString(), out short i))
+                {
+                    rejestrowe = false;
+                    arg = i;
+
+                }
+                else
+                {
+                    rejZrodlowy = (Rejestr)r.arg2;
+                    rejestrowe = true;
+                }
+
+
+                commit_Click(sender, e);
+
+
+                listaRozkazow.RemoveAt(indeks);
+                indeks--;
+                refresh();
+            }
+
+        }
+
+        private void Form1_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)27)
+                Clear();
+        }
+
     }
 }
