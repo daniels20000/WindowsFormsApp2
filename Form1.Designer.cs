@@ -30,6 +30,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.Ax = new System.Windows.Forms.Label();
             this.Bx = new System.Windows.Forms.Label();
             this.Cx = new System.Windows.Forms.Label();
@@ -55,6 +56,9 @@
             this.krokowa = new System.Windows.Forms.Button();
             this.buttonZapisz = new System.Windows.Forms.Button();
             this.buttonOtworz = new System.Windows.Forms.Button();
+            this.label6 = new System.Windows.Forms.Label();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.buttonWyczysc = new System.Windows.Forms.Button();
             this.flowLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -327,11 +331,36 @@
             this.buttonOtworz.UseVisualStyleBackColor = true;
             this.buttonOtworz.Click += new System.EventHandler(this.buttonOtworz_Click);
             // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(297, 207);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(0, 13);
+            this.label6.TabIndex = 24;
+            // 
+            // timer1
+            // 
+            this.timer1.Interval = 1000;
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            // 
+            // buttonWyczysc
+            // 
+            this.buttonWyczysc.Location = new System.Drawing.Point(357, 70);
+            this.buttonWyczysc.Name = "buttonWyczysc";
+            this.buttonWyczysc.Size = new System.Drawing.Size(75, 23);
+            this.buttonWyczysc.TabIndex = 25;
+            this.buttonWyczysc.Text = "Wyczyść";
+            this.buttonWyczysc.UseVisualStyleBackColor = true;
+            this.buttonWyczysc.Click += new System.EventHandler(this.buttonWyczysc_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(592, 355);
+            this.Controls.Add(this.buttonWyczysc);
+            this.Controls.Add(this.label6);
             this.Controls.Add(this.buttonOtworz);
             this.Controls.Add(this.buttonZapisz);
             this.Controls.Add(this.krokowa);
@@ -391,6 +420,9 @@
         private System.Windows.Forms.Button krokowa;
         private System.Windows.Forms.Button buttonZapisz;
         private System.Windows.Forms.Button buttonOtworz;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Timer timer1;
+        private System.Windows.Forms.Button buttonWyczysc;
     }
 }
 

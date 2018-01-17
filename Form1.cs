@@ -31,12 +31,7 @@ namespace POSK
         public Form1()
         {            
             InitializeComponent();
-            
-            
-            refresh();
-
-
-
+            refresh();            
         }
 
        public void refresh()
@@ -55,9 +50,11 @@ namespace POSK
                 indeks = listaRozkazow.Count-1;
 
             labelKolejka.Text = "";
+
             foreach(Rozkaz r in listaRozkazow)
             {
-                labelKolejka.Text += r.tekstRozkazu();
+                String s = labelKolejka.Text;
+                labelKolejka.Text = r.tekstRozkazu() + s;
             }
         }
 
@@ -381,6 +378,8 @@ namespace POSK
                 XmlSerializer serializer = new XmlSerializer(typeof(List<Rozkaz>));
                 serializer.Serialize(fs, listaRozkazow);
             }
+            label6.Text = "Zapisano";
+            timer1.Start();
         }
 
         private void buttonOtworz_Click(object sender, EventArgs e)
@@ -392,6 +391,17 @@ namespace POSK
                 listaRozkazow = (List<Rozkaz>)serializer.Deserialize(fs);
             }
             refresh();
+        }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            label6.Text = "";
+            timer1.Stop();
+        }
+
+        private void buttonWyczysc_Click(object sender, EventArgs e)
+        {
+            Clear();
         }
     }
 }
