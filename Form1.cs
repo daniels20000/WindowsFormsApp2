@@ -470,12 +470,12 @@ namespace POSK
                     break;
                 case 3:
                     {
-
+                        przerwanie1Ah();
                     }
                     break;
                 case 4:
                     {
-
+                        Console.Beep();
                     }
                     break;
 
@@ -539,15 +539,57 @@ namespace POSK
                         B.setValue(A.NL);
                     }
                     break;
-                case 22:
+                case 24:
                     {
-                        B.setValue(Int32.Parse(DateTime.Now.Hour.ToString()));
+                        Keyboard keyboard = new Keyboard();
+                        if (keyboard.CapsLock)
+                            B.setValue(1);
+                        else
+                            B.setValue(2);
 
                     }
                     break;
 
             }
 
+            refresh();
+        }
+
+        public void przerwanie1Ah()
+        {
+            switch (A.NH)
+            {
+                case 0:
+                    {
+
+                        B.setValue((int)DateTime.Now.Ticks);
+                    }
+                    break;
+                case 6:
+                    {
+                        B.setValue(A.NL);
+                        timer2.Start();
+
+
+                    }
+                    break;
+
+            }
+
+            refresh();
+        }
+
+        private void timer2_Tick(object sender, EventArgs e)
+        {
+            if (B.getValue() > 0)
+            {
+                B.setValue(B.getValue() - 1);
+            }
+            else
+            {
+                timer2.Stop();
+                Console.Beep();
+            }
             refresh();
         }
     }

@@ -69,6 +69,7 @@
             this.AHBox = new System.Windows.Forms.TextBox();
             this.ALBox = new System.Windows.Forms.TextBox();
             this.button1 = new System.Windows.Forms.Button();
+            this.timer2 = new System.Windows.Forms.Timer(this.components);
             this.flowLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -465,6 +466,11 @@
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
+            // timer2
+            // 
+            this.timer2.Interval = 1000;
+            this.timer2.Tick += new System.EventHandler(this.timer2_Tick);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -554,6 +560,7 @@
         private System.Windows.Forms.TextBox AHBox;
         private System.Windows.Forms.TextBox ALBox;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Timer timer2;
     }
 }
 
