@@ -4,6 +4,9 @@ using System.Collections;
 using System.Collections.Generic;
 using System.IO;
 using System.Xml.Serialization;
+using System.Text;
+using Microsoft.VisualBasic.Devices;
+using System.Data;
 
 namespace POSK
 
@@ -432,6 +435,120 @@ namespace POSK
             }
         }
 
-      
+        private void button1_Click(object sender, EventArgs e)
+        {
+            byte a, b;
+            if(Byte.TryParse(AHBox.Text,out a))
+            {
+                A.NH = a;
+            }
+            if (Byte.TryParse(ALBox.Text, out b))
+            {
+                A.NL = b;
+            }
+            refresh();
+        }
+
+        private void buttonPrzerwanie_Click(object sender, EventArgs e)
+        {
+            switch (comboBox2.SelectedIndex)
+            {
+                case 0:
+                    {
+                        przerwanie10h();
+
+                    }break;
+                case 1:
+                    {
+                        przerwanie15h();
+                    }
+                    break;
+                case 2:
+                    {
+                        przerwanie16h();
+                    }
+                    break;
+                case 3:
+                    {
+
+                    }
+                    break;
+                case 4:
+                    {
+
+                    }
+                    break;
+
+            }
+        }
+
+        public void przerwanie10h()
+        {
+            switch (A.NH)
+            {
+                case 3:
+                    {
+                        B.setValue(Int16.Parse((Cursor.Position.X).ToString()));
+                        C.setValue(Int16.Parse((Cursor.Position.Y).ToString()));
+                    }
+                    break;
+                case 10:
+                    {
+                        ComputerInfo computerInfo = new ComputerInfo();
+
+                        B.setValue(Convert.ToInt32(computerInfo.TotalPhysicalMemory / 1000000));
+                        C.setValue(Convert.ToInt32(computerInfo.AvailablePhysicalMemory / 1000000));
+                    }
+                    break;
+                
+            }
+
+            refresh();
+        }
+
+        public void przerwanie15h()
+        {
+            switch (A.NH)
+            {
+                case 5:
+                    {
+                       
+                        C.setValue(Screen.PrimaryScreen.Bounds.Width );
+                        D.setValue( Screen.PrimaryScreen.Bounds.Height);
+                    }
+                    break;
+                case 22:
+                    {
+                        B.setValue(Int32.Parse(DateTime.Now.Hour.ToString()));
+
+                    }
+                    break;
+
+            }
+
+            refresh();
+        }
+
+        public void przerwanie16h()
+        {
+            switch (A.NH)
+            {
+                case 61:
+                    {
+
+                        B.setValue(A.NL);
+                    }
+                    break;
+                case 22:
+                    {
+                        B.setValue(Int32.Parse(DateTime.Now.Hour.ToString()));
+
+                    }
+                    break;
+
+            }
+
+            refresh();
+        }
     }
 }

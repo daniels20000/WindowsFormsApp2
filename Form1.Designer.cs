@@ -66,6 +66,9 @@
             this.comboBox2 = new System.Windows.Forms.ComboBox();
             this.label8 = new System.Windows.Forms.Label();
             this.buttonPrzerwanie = new System.Windows.Forms.Button();
+            this.AHBox = new System.Windows.Forms.TextBox();
+            this.ALBox = new System.Windows.Forms.TextBox();
+            this.button1 = new System.Windows.Forms.Button();
             this.flowLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -434,12 +437,42 @@
             this.buttonPrzerwanie.TabIndex = 32;
             this.buttonPrzerwanie.Text = "wykonaj";
             this.buttonPrzerwanie.UseVisualStyleBackColor = true;
+            this.buttonPrzerwanie.Click += new System.EventHandler(this.buttonPrzerwanie_Click);
+            // 
+            // AHBox
+            // 
+            this.AHBox.Location = new System.Drawing.Point(269, 364);
+            this.AHBox.Name = "AHBox";
+            this.AHBox.Size = new System.Drawing.Size(100, 20);
+            this.AHBox.TabIndex = 33;
+            this.AHBox.Text = "0";
+            // 
+            // ALBox
+            // 
+            this.ALBox.Location = new System.Drawing.Point(375, 364);
+            this.ALBox.Name = "ALBox";
+            this.ALBox.Size = new System.Drawing.Size(100, 20);
+            this.ALBox.TabIndex = 34;
+            this.ALBox.Text = "0";
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(479, 364);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 35;
+            this.button1.Text = "Ustaw";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(592, 423);
+            this.Controls.Add(this.button1);
+            this.Controls.Add(this.ALBox);
+            this.Controls.Add(this.AHBox);
             this.Controls.Add(this.buttonPrzerwanie);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.comboBox2);
@@ -518,6 +551,9 @@
         private System.Windows.Forms.ComboBox comboBox2;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Button buttonPrzerwanie;
+        private System.Windows.Forms.TextBox AHBox;
+        private System.Windows.Forms.TextBox ALBox;
+        private System.Windows.Forms.Button button1;
     }
 }
 
