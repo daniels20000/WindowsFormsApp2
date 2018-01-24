@@ -59,6 +59,13 @@
             this.label6 = new System.Windows.Forms.Label();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.buttonWyczysc = new System.Windows.Forms.Button();
+            this.buttonPush = new System.Windows.Forms.Button();
+            this.buttonPop = new System.Windows.Forms.Button();
+            this.label7 = new System.Windows.Forms.Label();
+            this.labelIP = new System.Windows.Forms.Label();
+            this.comboBox2 = new System.Windows.Forms.ComboBox();
+            this.label8 = new System.Windows.Forms.Label();
+            this.buttonPrzerwanie = new System.Windows.Forms.Button();
             this.flowLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -265,7 +272,7 @@
             // 
             this.labelKolejka.AutoSize = true;
             this.labelKolejka.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.labelKolejka.Location = new System.Drawing.Point(98, 181);
+            this.labelKolejka.Location = new System.Drawing.Point(98, 253);
             this.labelKolejka.MinimumSize = new System.Drawing.Size(150, 90);
             this.labelKolejka.Name = "labelKolejka";
             this.labelKolejka.Size = new System.Drawing.Size(150, 90);
@@ -274,7 +281,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(148, 157);
+            this.label5.Location = new System.Drawing.Point(148, 229);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(41, 13);
             this.label5.TabIndex = 18;
@@ -292,7 +299,7 @@
             // 
             // wykonajKolejke
             // 
-            this.wykonajKolejke.Location = new System.Drawing.Point(101, 274);
+            this.wykonajKolejke.Location = new System.Drawing.Point(101, 346);
             this.wykonajKolejke.Name = "wykonajKolejke";
             this.wykonajKolejke.Size = new System.Drawing.Size(62, 55);
             this.wykonajKolejke.TabIndex = 20;
@@ -303,7 +310,7 @@
             // krokowa
             // 
             this.krokowa.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.krokowa.Location = new System.Drawing.Point(182, 274);
+            this.krokowa.Location = new System.Drawing.Point(182, 346);
             this.krokowa.Name = "krokowa";
             this.krokowa.Size = new System.Drawing.Size(62, 55);
             this.krokowa.TabIndex = 21;
@@ -313,7 +320,7 @@
             // 
             // buttonZapisz
             // 
-            this.buttonZapisz.Location = new System.Drawing.Point(300, 181);
+            this.buttonZapisz.Location = new System.Drawing.Point(269, 248);
             this.buttonZapisz.Name = "buttonZapisz";
             this.buttonZapisz.Size = new System.Drawing.Size(75, 23);
             this.buttonZapisz.TabIndex = 22;
@@ -323,7 +330,7 @@
             // 
             // buttonOtworz
             // 
-            this.buttonOtworz.Location = new System.Drawing.Point(381, 181);
+            this.buttonOtworz.Location = new System.Drawing.Point(350, 248);
             this.buttonOtworz.Name = "buttonOtworz";
             this.buttonOtworz.Size = new System.Drawing.Size(75, 23);
             this.buttonOtworz.TabIndex = 23;
@@ -334,7 +341,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(297, 207);
+            this.label6.Location = new System.Drawing.Point(266, 274);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(0, 13);
             this.label6.TabIndex = 24;
@@ -354,11 +361,92 @@
             this.buttonWyczysc.UseVisualStyleBackColor = true;
             this.buttonWyczysc.Click += new System.EventHandler(this.buttonWyczysc_Click);
             // 
+            // buttonPush
+            // 
+            this.buttonPush.Location = new System.Drawing.Point(269, 139);
+            this.buttonPush.Name = "buttonPush";
+            this.buttonPush.Size = new System.Drawing.Size(75, 23);
+            this.buttonPush.TabIndex = 26;
+            this.buttonPush.Text = "PUSH";
+            this.buttonPush.UseVisualStyleBackColor = true;
+            this.buttonPush.Click += new System.EventHandler(this.buttonPush_Click);
+            // 
+            // buttonPop
+            // 
+            this.buttonPop.Location = new System.Drawing.Point(269, 168);
+            this.buttonPop.Name = "buttonPop";
+            this.buttonPop.Size = new System.Drawing.Size(75, 23);
+            this.buttonPop.TabIndex = 27;
+            this.buttonPop.Text = "POP";
+            this.buttonPop.UseVisualStyleBackColor = true;
+            this.buttonPop.Click += new System.EventHandler(this.buttonPop_Click);
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(64, 157);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(23, 13);
+            this.label7.TabIndex = 29;
+            this.label7.Text = "IP: ";
+            // 
+            // labelIP
+            // 
+            this.labelIP.AutoSize = true;
+            this.labelIP.BackColor = System.Drawing.Color.DarkGoldenrod;
+            this.labelIP.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.labelIP.Location = new System.Drawing.Point(98, 159);
+            this.labelIP.MinimumSize = new System.Drawing.Size(150, 13);
+            this.labelIP.Name = "labelIP";
+            this.labelIP.Size = new System.Drawing.Size(150, 17);
+            this.labelIP.TabIndex = 28;
+            this.labelIP.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // comboBox2
+            // 
+            this.comboBox2.FormattingEnabled = true;
+            this.comboBox2.Items.AddRange(new object[] {
+            "10h",
+            "15h",
+            "16h",
+            "1Ah",
+            "1Ch"});
+            this.comboBox2.Location = new System.Drawing.Point(275, 322);
+            this.comboBox2.Name = "comboBox2";
+            this.comboBox2.Size = new System.Drawing.Size(121, 21);
+            this.comboBox2.TabIndex = 30;
+            this.comboBox2.Text = "numer przerwania";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(294, 306);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(90, 13);
+            this.label8.TabIndex = 31;
+            this.label8.Text = "numer przerwania";
+            // 
+            // buttonPrzerwanie
+            // 
+            this.buttonPrzerwanie.Location = new System.Drawing.Point(402, 322);
+            this.buttonPrzerwanie.Name = "buttonPrzerwanie";
+            this.buttonPrzerwanie.Size = new System.Drawing.Size(75, 23);
+            this.buttonPrzerwanie.TabIndex = 32;
+            this.buttonPrzerwanie.Text = "wykonaj";
+            this.buttonPrzerwanie.UseVisualStyleBackColor = true;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(592, 355);
+            this.ClientSize = new System.Drawing.Size(592, 423);
+            this.Controls.Add(this.buttonPrzerwanie);
+            this.Controls.Add(this.label8);
+            this.Controls.Add(this.comboBox2);
+            this.Controls.Add(this.label7);
+            this.Controls.Add(this.labelIP);
+            this.Controls.Add(this.buttonPop);
+            this.Controls.Add(this.buttonPush);
             this.Controls.Add(this.buttonWyczysc);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.buttonOtworz);
@@ -423,6 +511,13 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.Button buttonWyczysc;
+        private System.Windows.Forms.Button buttonPush;
+        private System.Windows.Forms.Button buttonPop;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label labelIP;
+        private System.Windows.Forms.ComboBox comboBox2;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Button buttonPrzerwanie;
     }
 }
 

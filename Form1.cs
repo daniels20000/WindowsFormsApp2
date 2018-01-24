@@ -14,6 +14,7 @@ namespace POSK
         public Rejestr B = new Rejestr("BX");
         public Rejestr C = new Rejestr("CX");
         public Rejestr D = new Rejestr("DX");
+        public Rejestr IP = new Rejestr("IP");
 
         public int operacja = -1;
 
@@ -28,6 +29,8 @@ namespace POSK
         public List<Rozkaz> listaRozkazow = new List<Rozkaz>();
         public int indeks;
 
+        public short[] stos = new short[8];
+        public int SP = 7;
         public Form1()
         {            
             InitializeComponent();
@@ -40,7 +43,8 @@ namespace POSK
             Bx.Text = B.getStringValue();
             Cx.Text = C.getStringValue();
             Dx.Text = D.getStringValue();
-
+            IP.setValue(SP);
+            labelIP.Text = IP.getStringValue();
             refreshKolejka();
         }
 
@@ -403,5 +407,31 @@ namespace POSK
         {
             Clear();
         }
+
+        private void buttonPush_Click(object sender, EventArgs e)
+        {
+            if (SP >= 0)
+            {
+                stos[SP] = rejDocelowy.getValue();
+                SP--;
+                Clear();
+                refresh();
+            }
+        }
+
+        private void buttonPop_Click(object sender, EventArgs e)
+        {
+            if (SP < stos.Length)
+            {
+                SP++;
+                rejDocelowy.setValue(stos[SP]);
+                
+                Clear();
+                refresh();
+
+            }
+        }
+
+      
     }
 }
